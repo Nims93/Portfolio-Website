@@ -36,7 +36,7 @@ const PROJECTS_INFO = [
 
 export default function Projects() {
   return (
-    <ProjectsSection>
+    <ProjectsSection id={'projects'}>
       <SVGContainer>
         <WaveSvg />
       </SVGContainer>

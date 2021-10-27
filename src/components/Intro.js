@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default function Intro() {
   return (
-    <IntroSection>
+    <IntroSection id="intro">
       <ContentWrapper>
         <Heading>Hi, I'm Kieran Cyprien</Heading>
         <Text>I'm an aspiring web developer / programmer in London</Text>
