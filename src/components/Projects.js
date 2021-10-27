@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import Project from './Project';
 import WaveSvg from './../images/singlewave2.svg';
 import ReactMusicAppWebmDemo from './../videos/React-Music-Player.webm';
 import ReactRealtimeChatAppWebmDemo from './../videos/React-Chat-App.webm';
 import PathfindingVisualiserWebmDemo from './../videos/Pathfinding-Visualiser-Demo.webm';
 
-const ProjectsInfo = [
+const PROJECTS_INFO = [
   {
     title: 'React Music Player',
-    imgSrc: ReactMusicAppWebmDemo,
+    videoSrc: ReactMusicAppWebmDemo,
     altText: 'Music player app demo webm',
     desc: 'A music player app that plays a selection of songs using the javascript Audio contructor. Responsive and able to handle low user download speeds with a nice sliding UI design.',
     srcCodeLink: 'https://github.com/Nims93/react-music-player',
@@ -17,7 +18,7 @@ const ProjectsInfo = [
   },
   {
     title: 'React Realtime Chat App',
-    imgSrc: ReactRealtimeChatAppWebmDemo,
+    videoSrc: ReactRealtimeChatAppWebmDemo,
     altText: 'React Realtime Chat App webm',
     desc: 'A Realtime chat app made with react and firebase to handle the messages database on the backend.',
     srcCodeLink: 'https://github.com/Nims93/react-realtime-chat-app',
@@ -25,7 +26,7 @@ const ProjectsInfo = [
   },
   {
     title: 'Pathinding Visualiser',
-    imgSrc: PathfindingVisualiserWebmDemo,
+    videoSrc: PathfindingVisualiserWebmDemo,
     altText: 'Pathfinding viualiser demo webm',
     desc: 'An app that visualises pathfinding and maze generation algorithms. Create a maze of walls with your mouse clicks / drag across cells or using one of the maze generation algorithms. Then use a pathfinding algorithm to find a path (if one exists) from the start node to the end node.',
     srcCodeLink: 'https://github.com/Nims93/Pathfinding-Visualiser',
@@ -39,8 +40,20 @@ export default function Projects() {
       <SVGContainer>
         <WaveSvg />
       </SVGContainer>
+      <Title>Projects</Title>
       <ProjectsWrapper>
-        <Title>Projects</Title>
+        {PROJECTS_INFO.map((info) => {
+          return (
+            <Project
+              title={info.title}
+              videoSrc={info.videoSrc}
+              altText={info.altText}
+              desc={info.desc}
+              srcCodeLink={info.srcCodeLink}
+              liveLink={info.liveLink}
+            />
+          );
+        })}
       </ProjectsWrapper>
     </ProjectsSection>
   );
@@ -51,6 +64,12 @@ const Title = styled.h2`
   margin: 0;
   margin-top: 2em;
   text-align: center;
+
+  @media (min-width: 767px) {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-size: 12em;
+  }
 `;
 
 const SVGContainer = styled.div`
@@ -83,6 +102,14 @@ const ProjectsWrapper = styled.div`
   margin: auto;
   max-width: 1200px;
   text-align: center;
+
+  @media (min-width: 767px) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8em;
+  }
 `;
 
 const ProjectsSection = styled.section`

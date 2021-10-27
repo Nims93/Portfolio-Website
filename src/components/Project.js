@@ -10,8 +10,10 @@ export default function Project({
   liveLink,
 }) {
   return (
-    <Project>
-      <ProjectTitle>{title}</ProjectTitle>
+    <ProjectComponent>
+      <ProjectTitle href={liveLink} target="_blank" rel="noopener noreferrer">
+        <h3>{title}</h3>
+      </ProjectTitle>
       <Video>
         <source src={videoSrc} type="video/webm" />
         <p>
@@ -25,7 +27,7 @@ export default function Project({
         Source Code on Github!
       </Link>
       <Description>{desc}</Description>
-    </Project>
+    </ProjectComponent>
   );
 }
 
@@ -50,7 +52,7 @@ const Video = styled.video`
 const ProjectTitle = styled.a`
   text-decoration: none;
 
-  h2 {
+  h3 {
     font-size: 2.3em;
     color: white;
 
@@ -60,9 +62,13 @@ const ProjectTitle = styled.a`
   }
 `;
 
-const Project = styled.div`
+const ProjectComponent = styled.div`
   &:first-of-type {
     margin-top: 6em;
+
+    @media (min-width: 767px) {
+      margin-top: 0;
+    }
   }
 
   &:last-of-type {
@@ -70,4 +76,10 @@ const Project = styled.div`
   }
 
   margin: 8em 0;
+
+  @media (min-width: 767px) {
+    width: 500px;
+    height: auto;
+    margin: 0;
+  }
 `;
