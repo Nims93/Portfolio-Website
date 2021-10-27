@@ -1,15 +1,18 @@
-import React from 'react';
 import styled from 'styled-components';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import React, { useState } from 'react';
+import MobileDropDownMenu from './MobileDropDownMenu';
 import WaveSvg from './../images/singlewave1.svg';
 
 export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <NavBar>
       <Email>kieranakc2@gamil.com</Email>
-      <MobileMenuBtn>
-        <MenuBtnIcon />
-      </MobileMenuBtn>
+      <MobileDropDownMenu
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+      />
       <WavesContainer>
         <WaveSvg />
       </WavesContainer>
@@ -21,20 +24,6 @@ const Email = styled.p`
   cursor: pointer;
   margin-left: 1em;
   margin-top: 1em;
-`;
-
-const MenuBtnIcon = styled(GiHamburgerMenu)`
-  width: 100%;
-  height: 100%;
-  fill: white;
-`;
-
-const MobileMenuBtn = styled.div`
-  display: inline-block;
-  height: 80%;
-  margin-right: 1em;
-  margin-top: 0.5em;
-  cursor: pointer;
 `;
 
 const WavesContainer = styled.div`
@@ -69,5 +58,5 @@ const NavBar = styled.nav`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 3em;
+  height: 4em;
 `;

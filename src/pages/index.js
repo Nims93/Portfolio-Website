@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
   *, :after, :before {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
   }
 
   :root {
@@ -17,9 +18,8 @@ const GlobalStyle = createGlobalStyle`
     /* font-size: 10px; */
     color: white;
     font-size: 10px;
-    
-    padding: 0;
     font-family: 'Prompt', sans-serif;
+    background-color: green;
   }
 `;
 
