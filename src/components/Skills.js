@@ -14,7 +14,7 @@ import BlobSVG from './../images/dual-haikei-blobs.svg';
 
 export default function Skills() {
   return (
-    <SkillsSection>
+    <SkillsSection id="skills">
       <SectionContainer>
         <Title>Skills</Title>
         <SkillsContainer>
@@ -85,6 +85,25 @@ const Skill = styled.div`
   & + & {
     margin-top: 1.5em;
   }
+
+  svg {
+    height: 70%;
+    width: auto;
+  }
+
+  p {
+    font-weight: 400;
+  }
+
+  @media (min-width: 1050px) {
+    border-radius: 20px;
+    height: 110px !important;
+    width: 170px !important;
+
+    p {
+      font-size: 1.7em !important;
+    }
+  }
 `;
 
 const SkillsGroupSubContainer = styled.div`
@@ -96,7 +115,7 @@ const SkillsGroupSubContainer = styled.div`
     margin-top: 1.5em;
 
     @media (min-width: 1050px) {
-      margin-left: 4em;
+      /* margin-left: 4em; */
     }
   }
 
@@ -105,8 +124,16 @@ const SkillsGroupSubContainer = styled.div`
       width: 210px;
       height: 70px;
 
+      @media (min-width: 767px) {
+        width: 300px;
+        height: 100px;
+      }
+
       p {
         font-size: 1.1em;
+        @media (min-width: 767px) {
+          font-size: 1.3em;
+        }
       }
     }
   }
@@ -116,17 +143,32 @@ const SkillsGroupSubContainer = styled.div`
       width: 240px;
       height: 80px;
 
+      @media (min-width: 767px) {
+        width: 330px;
+        height: 110px;
+      }
+
       p {
         font-size: 1.2em;
+        @media (min-width: 767px) {
+          font-size: 1.5em;
+        }
       }
     }
 
     #git {
       width: 270px;
       height: 90px;
+      @media (min-width: 767px) {
+        width: 360px;
+        height: 120px;
+      }
 
       p {
         font-size: 1.3em;
+        @media (min-width: 767px) {
+          font-size: 1.6em;
+        }
       }
     }
   }
@@ -136,8 +178,17 @@ const SkillsGroupSubContainer = styled.div`
       width: 300px;
       height: 100px;
 
+      @media (min-width: 767px) {
+        width: 390px;
+        height: 130px;
+      }
+
       p {
         font-size: 1.4em;
+
+        @media (min-width: 767px) {
+          font-size: 1.7em;
+        }
       }
     }
 
@@ -145,8 +196,17 @@ const SkillsGroupSubContainer = styled.div`
       width: 330px;
       height: 110px;
 
+      @media (min-width: 767px) {
+        width: 420px;
+        height: 140px;
+      }
+
       p {
         font-size: 1.5em;
+
+        @media (min-width: 767px) {
+          font-size: 1.8em;
+        }
       }
     }
 
@@ -154,8 +214,17 @@ const SkillsGroupSubContainer = styled.div`
       width: 300px;
       height: 100px;
 
+      @media (min-width: 767px) {
+        width: 390px;
+        height: 130px;
+      }
+
       p {
         font-size: 1.4em;
+
+        @media (min-width: 767px) {
+          font-size: 1.7em;
+        }
       }
     }
   }
@@ -165,8 +234,17 @@ const SkillsGroupSubContainer = styled.div`
       width: 270px;
       height: 90px;
 
+      @media (min-width: 767px) {
+        width: 360px;
+        height: 120px;
+      }
+
       p {
         font-size: 1.3em;
+
+        @media (min-width: 767px) {
+          font-size: 1.6em;
+        }
       }
     }
 
@@ -174,8 +252,17 @@ const SkillsGroupSubContainer = styled.div`
       width: 240px;
       height: 80px;
 
+      @media (min-width: 767px) {
+        width: 330px;
+        height: 110px;
+      }
+
       p {
         font-size: 1.2em;
+
+        @media (min-width: 767px) {
+          font-size: 1.5em;
+        }
       }
     }
   }
@@ -185,8 +272,17 @@ const SkillsGroupSubContainer = styled.div`
       width: 210px;
       height: 70px;
 
+      @media (min-width: 767px) {
+        width: 300px;
+        height: 100px;
+      }
+
       p {
         font-size: 1.1em;
+
+        @media (min-width: 767px) {
+          font-size: 1.4em;
+        }
       }
     }
   }
@@ -199,6 +295,11 @@ const SkillsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 5em 0;
+
+  @media (min-width: 1050px) {
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
 const Title = styled.h2`
@@ -213,6 +314,7 @@ const Title = styled.h2`
 
 const SectionContainer = styled.div`
   width: 90%;
+  max-width: 1200px;
   text-align: center;
   position: relative;
 `;
@@ -221,4 +323,5 @@ const SkillsSection = styled.section`
   background-color: var(--skills-color);
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
 `;
