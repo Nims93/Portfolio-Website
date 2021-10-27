@@ -7,7 +7,7 @@ export default function MobileDropDownMenu({
   setMobileMenuOpen: setOpen,
 }) {
   return (
-    <MobileMenuBtn onClick={() => setOpen((open) => !open)}>
+    <MobileMenuBtn onClick={() => setOpen((o) => !o)}>
       <MenuBtnIcon />
       <MobileListContainer open={open}>
         <Link>
@@ -65,4 +65,8 @@ const MobileMenuBtn = styled.div`
   margin-right: 1em;
   margin-top: 0.5em;
   cursor: pointer;
+
+  @media (min-width: 767px) {
+    display: none;
+  }
 `;

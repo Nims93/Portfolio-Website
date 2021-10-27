@@ -9,6 +9,20 @@ export default function Navbar() {
   return (
     <NavBar>
       <Email>kieranakc2@gamil.com</Email>
+      <LinksContainer>
+        <Link>
+          <a href="#intro">Intro</a>
+        </Link>
+        <Link>
+          <a href="#projects">Projects</a>
+        </Link>
+        <Link>
+          <a href="#skills">Skills</a>
+        </Link>
+        <Link>
+          <a href="#contact-me">Contact</a>
+        </Link>
+      </LinksContainer>
       <MobileDropDownMenu
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
@@ -24,6 +38,23 @@ const Email = styled.p`
   cursor: pointer;
   margin-left: 1em;
   margin-top: 1em;
+`;
+
+const Link = styled.li`
+  a {
+    padding: 1em;
+  }
+`;
+
+const LinksContainer = styled.ul`
+  display: none;
+
+  @media (min-width: 767px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
 `;
 
 const WavesContainer = styled.div`
