@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import NavBar from './../components/Navbar';
 import Intro from './../components/Intro';
 import Projects from './../components/Projects';
+import WavesSection1 from './../components/WavesSection1';
 
 const GlobalStyle = createGlobalStyle`
   *, :after, :before {
@@ -49,6 +50,7 @@ const IndexPage = () => {
       <NavBar />
       <Intro />
       <Projects />
+      <WavesSection1 />
     </>
   );
 };
