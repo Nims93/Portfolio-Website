@@ -48,7 +48,7 @@ const MobileListContainer = styled.ul`
   border-radius: 10px;
   border: 1px solid white;
   padding: 1em 0;
-  z-index: 5;
+  z-index: 6;
 `;
 
 const MenuBtnIcon = styled(GiHamburgerMenu)`
@@ -61,10 +61,11 @@ const MenuBtnIcon = styled(GiHamburgerMenu)`
 const MobileMenuBtn = styled.div`
   position: relative;
   display: inline-block;
-  height: 80%;
+  height: 4em;
   margin-right: 1em;
   margin-top: 0.5em;
   cursor: pointer;
+  flex-shrink: 0;
 
   @media (min-width: 767px) {
     display: none;
