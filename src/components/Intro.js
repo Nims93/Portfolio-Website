@@ -57,6 +57,7 @@ const IntroSection = styled.section`
   justify-content: center;
   width: 100%;
   background-color: var(--intro-color);
+  overflow-x: hidden;
 
   @media (min-width: 767px) {
     padding-top: 10em;

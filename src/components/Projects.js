@@ -116,4 +116,5 @@ const ProjectsSection = styled.section`
   background-color: var(--projects-color);
   padding: 5em 0 2em 0;
   position: relative;
+  overflow-x: hidden;
 `;
