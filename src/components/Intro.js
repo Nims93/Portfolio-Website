@@ -27,11 +27,19 @@ export default function Intro() {
 const Text = styled.p`
   font-size: 1.7em;
   margin: 1em;
+
+  @media (min-width: 767px) {
+    font-size: 2.5em;
+  }
 `;
 
 const Heading = styled.h1`
   font-size: var(--section-heading-font-size-mb);
   margin-top: 1em;
+
+  @media (min-width: 767px) {
+    font-size: var(--section-heading-font-size-md);
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -42,11 +50,15 @@ const ContentWrapper = styled.div`
 
 const IntroSection = styled.section`
   margin-top: 3em;
-  /* padding: 8em 0 4em 0; */
-  padding-top: 3em;
+  padding-top: 8em;
+  padding-bottom: 5em;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   background-color: var(--intro-color);
+
+  @media (min-width: 767px) {
+    padding-top: 10em;
+  }
 `;
