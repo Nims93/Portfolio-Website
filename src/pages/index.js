@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { createGlobalStyle } from 'styled-components';
 import NavBar from './../components/Navbar';
 import Intro from './../components/Intro';
+import Projects from './../components/Projects';
 
 const GlobalStyle = createGlobalStyle`
   *, :after, :before {
@@ -14,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --navbar-color: #18181b;
     --intro-color: #dd3f31;
+    --projects-color: hsl(303, 64%, 26%);
 
     --section-heading-font-size-mb: 4em;
     --section-heading-font-size-md: 11em;
@@ -46,6 +48,7 @@ const IndexPage = () => {
       <GlobalStyle />
       <NavBar />
       <Intro />
+      <Projects />
     </>
   );
 };
