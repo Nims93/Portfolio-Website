@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     --intro-color: #dd3f31;
 
     --section-heading-font-size-mb: 4em;
+    --section-heading-font-size-md: 11em;
   }
 
   body {
