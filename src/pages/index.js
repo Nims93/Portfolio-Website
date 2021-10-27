@@ -5,6 +5,7 @@ import NavBar from './../components/Navbar';
 import Intro from './../components/Intro';
 import Projects from './../components/Projects';
 import WavesSection1 from './../components/WavesSection1';
+import Skills from './../components/Skills';
 
 const GlobalStyle = createGlobalStyle`
   *, :after, :before {
@@ -16,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --navbar-color: #18181b;
     --intro-color: #dd3f31;
-    --projects-color: hsl(303, 64%, 26%);
+    --projects-color: #6d1868;
+    --skills-color: #ff0066;
 
     --section-heading-font-size-mb: 4em;
     --section-heading-font-size-md: 11em;
@@ -51,6 +53,7 @@ const IndexPage = () => {
       <Intro />
       <Projects />
       <WavesSection1 />
+      <Skills />
     </>
   );
 };
