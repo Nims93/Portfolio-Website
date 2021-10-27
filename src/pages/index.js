@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { createGlobalStyle } from 'styled-components';
 import NavBar from './../components/Navbar';
+import Intro from './../components/Intro';
 
 const GlobalStyle = createGlobalStyle`
   *, :after, :before {
@@ -12,6 +13,9 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     --navbar-color: #18181b;
+    --intro-color: #dd3f31;
+
+    --section-heading-font-size-mb: 4em;
   }
 
   body {
@@ -40,6 +44,7 @@ const IndexPage = () => {
       </Helmet>
       <GlobalStyle />
       <NavBar />
+      <Intro />
     </>
   );
 };
