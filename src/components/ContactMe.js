@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import ContactForm from './ContactForm';
 
 export default function ContactMe() {
   return (
-    <ContactSection>
+    <ContactSection id="contact-me">
       <ContactWrapper>
         <Title>Contact Me!</Title>
         <Text>
           If you're impressed with my work and would like to contact me, feel
           free to fill out the form below!
         </Text>
+        <ContactForm />
       </ContactWrapper>
     </ContactSection>
   );
@@ -33,6 +35,7 @@ const Title = styled.h2`
 
 const ContactWrapper = styled.div`
   width: 90%;
+  max-width: 1200px;
   text-align: center;
   position: relative;
 `;

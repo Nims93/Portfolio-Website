@@ -62,11 +62,40 @@ export default function ContactForm() {
             />
             <StyledErrorMessage name="message" component="div" />
           </InputWrapper>
+
+          <SubmitBtn type="submit" disabled={isSubmitting}>
+            Submit!
+          </SubmitBtn>
         </StyledForm>
       )}
     </Formik>
   );
 }
+
+const SubmitBtn = styled.button`
+  appearance: none;
+  margin-top: 3em;
+  padding: 0.2em 1em;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background-color: white;
+  font-family: 'Prompt', sans-serif;
+  font-size: 1.7em;
+  transition: background-color 0.2s ease-in 0.1s, transform 0.2s ease-in;
+
+  @media (min-width: 767px) {
+    font-size: 2em;
+  }
+
+  &:focus {
+    border: 2px solid #3c31dd;
+    background-color: rgba(255, 255, 255, 0.527);
+  }
+  &:hover {
+    background-color: rgba(23, 190, 113, 0.637);
+    transform: translateY(-2px) scale(1.1) rotate(5deg);
+  }
+`;
 
 const StyledErrorMessage = styled(ErrorMessage)`
   position: relative;
@@ -163,5 +192,5 @@ const InputWrapper = styled.div`
 
 const StyledForm = styled(Form)`
   width: 90%;
-  margin: 0 auto 15em;
+  margin: 0 auto 5em;
 `;
