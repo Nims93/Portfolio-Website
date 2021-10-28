@@ -7,6 +7,7 @@ import Projects from './../components/Projects';
 import WavesSection1 from './../components/WavesSection1';
 import Skills from './../components/Skills';
 import WavesSection2 from '../components/WavesSection2';
+import ContactMe from '../components/ContactMe';
 
 const GlobalStyle = createGlobalStyle`
   *, :after, :before {
@@ -20,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
     --intro-color: #dd3f31;
     --projects-color: #6d1868;
     --skills-color: #ff0066;
+    --contact-color: #202731;
 
     --section-heading-font-size-mb: 4em;
     --section-heading-font-size-md: 11em;
@@ -58,6 +60,7 @@ const IndexPage = () => {
       <WavesSection1 />
       <Skills />
       <WavesSection2 />
+      <ContactMe />
     </>
   );
 };
