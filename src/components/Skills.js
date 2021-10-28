@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import KUTE from 'kute.js';
 import CssSVG from './../images/icons8-css3.svg';
@@ -13,11 +13,40 @@ import ReactSVG from './../images/svgrepo-react.svg';
 import BlobSVG from './../images/dual-haikei-blobs.svg';
 
 export default function Skills() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const kuteRef = useRef(null);
+  const isAnimationOnScreenRef = useRef(false);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleWindowResize);
+
+    if (windowWidth >= 1050 && !isAnimationOnScreenRef.current) {
+      //if window width is greather than 1050px and animation hasn't already been created
+      isAnimationOnScreenRef.current = true;
+      kuteRef.current = KUTE.fromTo(
+        '#blob1',
+        { path: '#blob1' },
+        { path: '#blob2' },
+        { repeat: 999, duration: 3000, yoyo: true }
+      ).start();
+    } else if (windowWidth < 1050 && isAnimationOnScreenRef.current) {
+      //if window width is less than 1050px and animation has been created
+      isAnimationOnScreenRef.current = false;
+      kuteRef.current.stop();
+    }
+
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, [windowWidth]);
+
   return (
     <SkillsSection id="skills">
       <SectionContainer>
         <Title>Skills</Title>
         <SkillsContainer>
+          {windowWidth >= 1050 ? <BlobSVG /> : null}
           <SkillsGroupSubContainer>
             <Skill id="html">
               <HtmlSVG />
@@ -84,6 +113,10 @@ const Skill = styled.div`
 
   & + & {
     margin-top: 1.5em;
+
+    @media (min-width: 1050px) {
+      margin-top: 6em;
+    }
   }
 
   svg {
@@ -115,7 +148,7 @@ const SkillsGroupSubContainer = styled.div`
     margin-top: 1.5em;
 
     @media (min-width: 1050px) {
-      /* margin-left: 4em; */
+      margin-left: 4em;
     }
   }
 
@@ -296,6 +329,18 @@ const SkillsContainer = styled.div`
   align-items: center;
   padding: 5em 0;
 
+  #blobs {
+    position: absolute;
+    height: 120%;
+    width: 120%;
+    top: 7%;
+
+    path {
+      fill: #8a0037;
+    }
+  }
+
+  //styling that overrides the stepped mobile view
   @media (min-width: 1050px) {
     flex-direction: row;
     justify-content: center;
@@ -309,6 +354,7 @@ const Title = styled.h2`
 
   @media (min-width: 767px) {
     font-size: var(--section-heading-font-size-md);
+    top: -1em;
   }
 `;
 
@@ -323,5 +369,4 @@ const SkillsSection = styled.section`
   background-color: var(--skills-color);
   display: flex;
   justify-content: center;
-  overflow-x: hidden;
 `;

@@ -25,11 +25,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    /* font-size: 10px; */
-    color: white;
-    font-size: 10px;
+    margin: 0;
+    padding: 0;
     font-family: 'Prompt', sans-serif;
-    background-color: green;
+    overflow-x: hidden;
+    color: white;
+    background-color: #202731;
+    font-size: 10px;
   }
 `;
 
