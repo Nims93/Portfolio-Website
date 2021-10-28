@@ -7,7 +7,14 @@ export default function MobileDropDownMenu({
   setMobileMenuOpen: setOpen,
 }) {
   return (
-    <MobileMenuBtn onClick={() => setOpen((o) => !o)}>
+    <MobileMenuBtn
+      aria-label="Options"
+      role="menu"
+      aria-expanded={open ? true : false}
+      tabIndex="0"
+      onClick={() => setOpen((o) => !o)}
+      onKeyPress={(e) => e.key === 'Enter' && setOpen(!open)}
+    >
       <MenuBtnIcon />
       <MobileListContainer open={open}>
         <Link>
@@ -29,10 +36,16 @@ export default function MobileDropDownMenu({
 
 const Link = styled.li`
   a {
+    width: 100%;
+    display: inline-block;
     color: white;
     font-size: 1.8em;
     text-decoration: none;
-    padding: 1em;
+    padding: 0 1em;
+
+    &:focus {
+      border: 1px solid white;
+    }
   }
 `;
 
