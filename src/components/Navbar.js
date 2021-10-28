@@ -1,20 +1,36 @@
-import styled from 'styled-components';
-import React, { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import React, { useState, useRef } from 'react';
 import MobileDropDownMenu from './MobileDropDownMenu';
 import WaveSvg from './../images/singlewave1.svg';
 import { RiClipboardFill as ClipboardSvg } from 'react-icons/ri';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [displayPopup, setDisplayPopup] = useState(false);
+  const timeoutRef = useRef(null);
+
+  const handleEmailClick = async () => {
+    try {
+      await navigator.clipboard.writeText('kieranakc2@gmail.com');
+      setDisplayPopup(true);
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+        setDisplayPopup(false);
+      }, 2000);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <NavBar>
       <NavContentWrapper>
-        <Email>
+        <Email tabIndex="0" onClick={handleEmailClick}>
           kieranakc2@gmail.com
           <ClipboardSvgWrapper>
             <ClipboardSvg />
           </ClipboardSvgWrapper>
+          {displayPopup ? <PopupMessage>Copied!</PopupMessage> : null}
         </Email>
         <LinksContainer>
           <Link>
@@ -35,12 +51,49 @@ export default function Navbar() {
           setMobileMenuOpen={setMobileMenuOpen}
         />
       </NavContentWrapper>
-      <WavesContainer>
+      <WaveContainer>
         <WaveSvg />
-      </WavesContainer>
+      </WaveContainer>
     </NavBar>
   );
 }
+const popup = keyframes`
+from {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+
+  100% {
+    transform: scale(1);
+
+  }
+`;
+
+const PopupMessage = styled.span`
+  position: absolute;
+  top: 125%;
+  left: 50%;
+  /* transform: translateX(-50%); */
+  padding: 0.3em;
+  border-radius: 10px;
+  background-color: #808080;
+  cursor: initial;
+  box-shadow: 1px 1px 50px 5px #808080;
+  animation: ${popup} 0.5s linear 1;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 10px solid #808080;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+`;
+
 const ClipboardSvgWrapper = styled.span`
   position: relative;
   display: inline-block;
@@ -97,13 +150,14 @@ const LinksContainer = styled.ul`
   }
 `;
 
-const WavesContainer = styled.div`
+const WaveContainer = styled.div`
   position: absolute;
   top: 99%;
   left: 0;
   width: 100%;
   overflow: hidden;
   line-height: 0;
+  pointer-events: none;
 
   & svg {
     position: relative;
