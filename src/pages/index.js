@@ -6,6 +6,7 @@ import Intro from './../components/Intro';
 import Projects from './../components/Projects';
 import WavesSection1 from './../components/WavesSection1';
 import Skills from './../components/Skills';
+import WavesSection2 from '../components/WavesSection2';
 
 const GlobalStyle = createGlobalStyle`
   *, :after, :before {
@@ -56,6 +57,7 @@ const IndexPage = () => {
       <Projects />
       <WavesSection1 />
       <Skills />
+      <WavesSection2 />
     </>
   );
 };
