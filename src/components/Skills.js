@@ -344,6 +344,7 @@ const SkillsContainer = styled.div`
   @media (min-width: 1050px) {
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 10em;
   }
 `;
 
