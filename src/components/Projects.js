@@ -42,7 +42,7 @@ export default function Projects() {
       </SVGContainer>
       <Title>Projects</Title>
       <ProjectsWrapper>
-        {PROJECTS_INFO.map((info) => {
+        {PROJECTS_INFO.map((info, idx) => {
           return (
             <Project
               title={info.title}
@@ -51,6 +51,7 @@ export default function Projects() {
               desc={info.desc}
               srcCodeLink={info.srcCodeLink}
               liveLink={info.liveLink}
+              key={idx}
             />
           );
         })}
