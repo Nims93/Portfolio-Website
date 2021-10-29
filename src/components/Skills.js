@@ -333,7 +333,7 @@ const SkillsContainer = styled.div`
     position: absolute;
     height: 120%;
     width: 120%;
-    top: 7%;
+    top: 3%;
 
     path {
       fill: #8a0037;
@@ -355,7 +355,7 @@ const Title = styled.h2`
 
   @media (min-width: 767px) {
     font-size: var(--section-heading-font-size-md);
-    top: -1em;
+    top: -0.5em;
   }
 `;
 
