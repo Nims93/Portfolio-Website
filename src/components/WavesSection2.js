@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import LayeredWaves from '../images/layered-waves2.svg';
+import LayeredWaves from '../svgs-as-components/layered-waves2.svg';
 
 export default function WavesSection2() {
   return (

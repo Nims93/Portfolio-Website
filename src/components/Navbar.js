@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import React, { useState, useRef } from 'react';
 import MobileDropDownMenu from './MobileDropDownMenu';
-import WaveSvg from './../images/singlewave1.svg';
+import WaveSvg from './../svgs-as-components/singlewave1.svg';
 import { RiClipboardFill as ClipboardSvg } from 'react-icons/ri';
 
 export default function Navbar() {

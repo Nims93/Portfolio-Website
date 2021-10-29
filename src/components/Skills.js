@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import KUTE from 'kute.js';
-import CssSVG from './../images/icons8-css3.svg';
-import FirebaseSVG from './../images/icons8-firebase.svg';
-import GitSVG from './../images/icons8-git.svg';
-import GithubSVG from './../images/icons8-github.svg';
-import JsSVG from './../images/icons8-javascript.svg';
-import PythonSVG from './../images/icons8-python.svg';
-import SassSVG from './../images/icons8-sass.svg';
-import HtmlSVG from './../images/svgrepo-html5.svg';
-import ReactSVG from './../images/svgrepo-react.svg';
-import BlobSVG from './../images/dual-haikei-blobs.svg';
+import CssSVG from './../svgs-as-components/icons8-css3.svg';
+import FirebaseSVG from './../svgs-as-components/icons8-firebase.svg';
+import GitSVG from './../svgs-as-components/icons8-git.svg';
+import GithubSVG from './../svgs-as-components/icons8-github.svg';
+import JsSVG from './../svgs-as-components/icons8-javascript.svg';
+import PythonSVG from './../svgs-as-components/icons8-python.svg';
+import SassSVG from './../svgs-as-components/icons8-sass.svg';
+import HtmlSVG from './../svgs-as-components/svgrepo-html5.svg';
+import ReactSVG from './../svgs-as-components/svgrepo-react.svg';
+import BlobSVG from './../svgs-as-components/dual-haikei-blobs.svg';
 
 export default function Skills() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

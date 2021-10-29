@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import ContactForm from './ContactForm';
+import BlobsSvgMb from '../images/blob-scatter-haikei-mob.svg';
+import BlobsSvg from '../images/blob-scatter-haikei.svg';
 
 export default function ContactMe() {
   return (
@@ -42,13 +44,13 @@ const ContactWrapper = styled.div`
 
 const ContactSection = styled.section`
   background-color: #202731;
-  background: no-repeat top url('./../assets/blob-scatter-haikei-mob.svg');
+  background: no-repeat top url(${BlobsSvgMb});
   background-size: cover;
   width: 100%;
   display: flex;
   justify-content: center;
 
   @media (min-width: 767px) {
-    background-image: url('./../assets/blob-scatter-haikei.svg');
+    background-image: url(${BlobsSvg});
   }
 `;

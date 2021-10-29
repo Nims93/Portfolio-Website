@@ -14,7 +14,12 @@ export default function Project({
       <ProjectTitle href={liveLink} target="_blank" rel="noopener noreferrer">
         <h3>{title}</h3>
       </ProjectTitle>
-      <Video>
+      <Video
+        preload="true"
+        autoPlay="true"
+        loop="true"
+        style={{ width: '100%' }}
+      >
         <source src={videoSrc} type="video/webm" />
         <p>
           {altText}. <a href={videoSrc}>Link to video</a>
