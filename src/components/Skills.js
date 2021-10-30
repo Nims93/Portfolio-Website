@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import KUTE from 'kute.js';
+// import KUTE from 'kute.js';
 import CssSVG from './../svgs-as-components/icons8-css3.svg';
 import FirebaseSVG from './../svgs-as-components/icons8-firebase.svg';
 import GitSVG from './../svgs-as-components/icons8-git.svg';
@@ -13,12 +13,18 @@ import ReactSVG from './../svgs-as-components/svgrepo-react.svg';
 import BlobSVG from './../svgs-as-components/dual-haikei-blobs.svg';
 
 export default function Skills() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(null);
   const kuteRef = useRef(null);
   const isAnimationOnScreenRef = useRef(false);
 
   useEffect(() => {
-    const handleWindowResize = () => {
+    setWindowWidth(window.innerWidth);
+  });
+
+  useEffect(async () => {
+    const { default: KUTE } = await import('kute.js');
+
+    const handleWindowResize = async () => {
       setWindowWidth(window.innerWidth);
     };
     window.addEventListener('resize', handleWindowResize);
