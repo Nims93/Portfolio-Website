@@ -37,7 +37,6 @@ const Content = styled.p`
 const ContentWrapper = styled.div`
   margin: 0 auto;
   height: 100%;
-  width: 250px;
 `;
 
 const Wrapper = styled.div`
