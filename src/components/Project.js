@@ -1,35 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-export default function Project({
-  title,
-  videoSrc,
-  altText,
-  desc,
-  srcCodeLink,
-  liveLink,
-}) {
+export default function Project(props) {
+  const { title, videoSrc, altText, desc, srcCodeLink, liveLink } = props;
+
+  const videoRef = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      entry.isIntersecting && videoRef.current.play();
+    });
+
+    observer.observe(videoRef.current);
+  });
+
   return (
     <ProjectComponent>
       <ProjectTitle href={liveLink} target="_blank" rel="noopener noreferrer">
         <h3>{title}</h3>
       </ProjectTitle>
-      <Video
-        preload="true"
-        autoPlay="true"
-        loop="true"
-        style={{ width: '100%' }}
-      >
+      <Video ref={videoRef} preload="" loop={true}>
         <source src={videoSrc} type="video/webm" />
         <p>
           {altText}. <a href={videoSrc}>Link to video</a>
         </p>
       </Video>
-      <Link href={liveLink} target="_blank" rel="noopener noreferrer">
-        See Live Project Here!
+      <Link left href={liveLink} target="_blank" rel="noopener noreferrer">
+        Live
       </Link>
-      <Link href={srcCodeLink} target="_blank" rel="noopener noreferrer">
-        Source Code on Github!
+      <Link right href={srcCodeLink} target="_blank" rel="noopener noreferrer">
+        Github
       </Link>
       <Description>{desc}</Description>
     </ProjectComponent>
@@ -41,12 +40,38 @@ const Description = styled.p`
 `;
 
 const Link = styled.a`
-  display: block;
+  position: relative;
+  display: inline-block;
   font-size: 1.7em;
   color: white;
+  padding: 0.2em;
+  width: 6em;
+  border: 2px solid white;
+  margin: 0.7em;
+  border-radius: 3px;
+  z-index: 1;
+  transition: color 0.4s ease-in;
 
-  @media (min-width: 767px) {
-    font-size: 1.5em;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: ${(props) => (props.left ? 0 : '')};
+    right: ${(props) => (props.right ? 0 : '')};
+    height: 100%;
+    width: 0%;
+    background-color: white;
+    transition: width 0.2s ease-in-out;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: black;
+    :before {
+      width: 100%;
+      background-color: white;
+      z-index: -1;
+    }
   }
 `;
 
