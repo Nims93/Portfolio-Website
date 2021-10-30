@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import Project from './Project';
 import WaveSvg from './../svgs-as-components/singlewave2.svg';
 import GitHubSvg from '../svgs-as-components/icons8-github.svg';
+import GatsbyIcon from '../images/gatsby.svg';
+
+import StyledComponentsIcon from '../images/styled-components.png';
 import ReactMusicAppWebmDemo from './../videos/React-Music-Player.webm';
 import ReactRealtimeChatAppWebmDemo from './../videos/React-Chat-App.webm';
 import PathfindingVisualiserWebmDemo from './../videos/Pathfinding-Visualiser-Demo.webm';
@@ -21,7 +24,7 @@ const PROJECTS_INFO = [
     videoSrc: ReactRealtimeChatAppWebmDemo,
     altText: 'React Realtime Chat App webm',
     desc: "A Realtime chat app made possible by Google Firebase Real-Time Database to store and read dynamically created user messages. Also features user authentication using Google's authentication API for creating secure messages. This project helped me fully grasp the concept of asyc Js for sending and fetching data accross a network and enhanced my understanding of collection based NoSQL Databases. I also dabbled in Node Js with the use of Firebase cloud functions to filter bad words from each message. Coded with React, SASS and Firebase Real-Time Database.",
-    srcCodeLink: 'https://github.com/Nims93/react-realtime-chat-app',
+    srcCodeLink: 'https://github.com/Nims93/React-Realtime-Chat-App',
     liveLink: 'https://realtime-react-chat-app.firebaseapp.com/',
   },
   {
@@ -29,9 +32,8 @@ const PROJECTS_INFO = [
     videoSrc: ReactMusicAppWebmDemo,
     altText: 'Music player app demo webm',
     desc: 'A music player app that plays a selection of songs using the javascript Web Audio API. Features include repeat, next song, previous song, play/pause buttons and seekbar scrubbing to seek to a different part of the song. Able to handle variable playback speeds due to low download speed or use of the seekbar without the UI losing sync with the audio. Also features a nice elegant and responsive sliding UI design. Coded with React and SASS.',
-    srcCodeLink: 'https://github.com/Nims93/react-music-player',
-    liveLink:
-      'https://615504cc4d11864b80b8bc91--gallant-ride-7ea3b5.netlify.app/',
+    srcCodeLink: 'https://github.com/Nims93/React-Music-Player',
+    liveLink: 'https://reactproj-music-player.netlify.app/',
   },
 ];
 
@@ -59,14 +61,22 @@ export default function Projects() {
       </ProjectsWrapper>
       <PortfolioInfoPara>
         Finally, this portfolio website was coded using the Static Site
-        Generator Gatsby and styled using styled components. You can view the
-        source code here on
+        Generator Gatsby{' '}
+        <img
+          src={GatsbyIcon}
+          style={{
+            borderRadius: '50%',
+          }}
+          alt="Gatsby icon"
+        ></img>{' '}
+        and styled using styled components{' '}
+        <img src={StyledComponentsIcon} alt="styled components icon"></img>. You
+        can view the source code here on
         <Link href="https://github.com/Nims93/Portfolio-Website">
           GitHub. <GitHubSvg />
         </Link>
-        I originally coded this website with plain React and SCSS but decided
-        the scrap it and use a Static Site Generator instead. If you would like
-        to see Portfolio v1
+        I originally coded this website with React and SCSS but decided the
+        scrap it. If you would like to see Portfolio v1
         <Link href="https://github.com/Nims93/Old-Portfolio-Site">
           click here. <GitHubSvg />
         </Link>
@@ -95,8 +105,24 @@ const Link = styled.a`
 
 const PortfolioInfoPara = styled.p`
   font-size: 1.5em;
-  max-width: 1000px;
+  max-width: 90%;
   margin: auto;
+
+  img {
+    height: 20px;
+    width: auto;
+    background-color: white;
+    vertical-align: middle;
+    /* border-radius: 50%; */
+  }
+
+  @media (min-width: 767px) {
+    max-width: 600px;
+  }
+
+  @media (min-width: 1050px) {
+    max-width: 1000px;
+  }
 `;
 
 const Title = styled.h2`
