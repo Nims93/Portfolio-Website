@@ -38,8 +38,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 10px;
   }
 
-  //styling text area here because styled components and formik use the same "as" prop 
-  //causing formik to not capture textarea input
+  //styling textarea globally because styled components and formik use the same "as" prop 
+  //which was stopping formik from capturing the text input 
   textarea {
     appearance: none;
     resize: none;
