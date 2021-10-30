@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import MobileDropDownMenu from './MobileDropDownMenu';
 import WaveSvg from './../svgs-as-components/singlewave1.svg';
 import { RiClipboardFill as ClipboardSvg } from 'react-icons/ri';
+import GitHubSvg from '../svgs-as-components/icons8-github.svg';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,6 +50,12 @@ export default function Navbar() {
           <Link>
             <a href="#contact-me">Contact</a>
           </Link>
+          <Link>
+            <a href="https://github.com/Nims93/Portfolio-Website">
+              View Source
+              <GitHubSvg />
+            </a>
+          </Link>
         </LinksContainer>
         <MobileDropDownMenu
           mobileMenuOpen={mobileMenuOpen}
@@ -70,7 +77,6 @@ from {
 
   100% {
     transform: scale(1);
-
   }
 `;
 
@@ -83,7 +89,7 @@ const PopupMessage = styled.span`
   border-radius: 10px;
   background-color: #808080;
   cursor: initial;
-  box-shadow: 1px 1px 50px 5px #808080;
+  box-shadow: 1px 1px 10px 5px #808080;
   animation: ${popup} 0.5s linear 1;
 
   &:after {
@@ -141,6 +147,13 @@ const Email = styled.p`
 `;
 
 const Link = styled.li`
+  border-radius: 5px;
+
+  &:hover {
+    background-color: white;
+    transition: background-color 0.2s ease-in-out;
+  }
+
   a {
     padding: 1em;
     color: white;
@@ -148,8 +161,14 @@ const Link = styled.li`
     text-decoration: none;
 
     &:hover {
-color: grey;    
+      color: grey;
+      transition: color 0.4s ease-in-out;
     }
+  }
+
+  svg {
+    height: 15px;
+    width: auto;
   }
 `;
 

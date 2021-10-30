@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { FiExternalLink } from 'react-icons/fi';
 
 export default function MobileDropDownMenu({
   mobileMenuOpen: open,
@@ -29,12 +30,18 @@ export default function MobileDropDownMenu({
         <Link>
           <a href="#contact-me">Contact</a>
         </Link>
+        <Link>
+          <a href="https://github.com/Nims93/Portfolio-Website">Source</a>
+          <FiExternalLink />
+        </Link>
       </MobileListContainer>
     </MobileMenuBtn>
   );
 }
 
 const Link = styled.li`
+  position: relative;
+
   a {
     width: 100%;
     display: inline-block;
@@ -46,6 +53,15 @@ const Link = styled.li`
     &:focus {
       border: 1px solid white;
     }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 15px;
+    height: auto;
   }
 `;
 
