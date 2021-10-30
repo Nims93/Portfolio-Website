@@ -25,7 +25,11 @@ export default function Navbar() {
   return (
     <NavBar>
       <NavContentWrapper>
-        <Email tabIndex="0" onClick={handleEmailClick}>
+        <Email
+          tabIndex="0"
+          onClick={handleEmailClick}
+          onKeyPress={(e) => e.key === 'Enter' && handleEmailClick()}
+        >
           kieranakc2@gmail.com
           <ClipboardSvgWrapper>
             <ClipboardSvg />
@@ -125,6 +129,14 @@ const Email = styled.p`
     border-radius: 10px;
     background-color: grey;
     z-index: 6;
+
+    &:hover {
+      background-color: #545454;
+
+      svg {
+        fill: #b5b5bf;
+      }
+    }
   }
 `;
 
@@ -134,6 +146,10 @@ const Link = styled.li`
     color: white;
     font-size: 1.6em;
     text-decoration: none;
+
+    &:hover {
+color: grey;    
+    }
   }
 `;
 
