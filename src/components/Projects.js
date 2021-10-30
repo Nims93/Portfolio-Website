@@ -11,7 +11,7 @@ const PROJECTS_INFO = [
     title: 'React Music Player',
     videoSrc: ReactMusicAppWebmDemo,
     altText: 'Music player app demo webm',
-    desc: 'A music player app that plays a selection of songs using the javascript Audio contructor. Responsive and able to handle low user download speeds with a nice sliding UI design.',
+    desc: 'A music player app that plays a selection of songs using the javascript Audio contructor. Able to handle variable playback speeds without the app losing sync with the Audio APIs playback rate whether due to an increase playback rate from user seekbar scrubbing or a decrease from low download speeds. Also features a nice elegant and responsive sliding UI design. Coded with React and SASS.',
     srcCodeLink: 'https://github.com/Nims93/react-music-player',
     liveLink:
       'https://615504cc4d11864b80b8bc91--gallant-ride-7ea3b5.netlify.app/',
@@ -20,7 +20,7 @@ const PROJECTS_INFO = [
     title: 'React Realtime Chat App',
     videoSrc: ReactRealtimeChatAppWebmDemo,
     altText: 'React Realtime Chat App webm',
-    desc: 'A Realtime chat app made with react and firebase to handle the messages database on the backend.',
+    desc: "A Realtime chat app made possible by Google Firebase Real-Time Database to store and serve dynamically created user messages. Also features user authentication using Google's authentication API for creating secure messages. The project that helped me fully grasp asyc Js for data fetching , writing and understanding collection based NoSQL Databases. Coded with React, SASS and Firebase Real-Time Database.",
     srcCodeLink: 'https://github.com/Nims93/react-realtime-chat-app',
     liveLink: 'https://realtime-react-chat-app.firebaseapp.com/',
   },
@@ -28,7 +28,7 @@ const PROJECTS_INFO = [
     title: 'Pathinding Visualiser',
     videoSrc: PathfindingVisualiserWebmDemo,
     altText: 'Pathfinding viualiser demo webm',
-    desc: 'An app that visualises pathfinding and maze generation algorithms. Create a maze of walls with your mouse clicks / drag across cells or using one of the maze generation algorithms. Then use a pathfinding algorithm to find a path (if one exists) from the start node to the end node.',
+    desc: 'An app that visualises pathfinding and maze generation algorithms. Create a maze of walls with mouse clicks, click draging your cursor across cells or using one of the maze generation algorithms. Then use a pathfinding algorithm to find a path (if one exists) from the start node to the end node. My first project that helped my sure up my basic Js knowledge before jumping into any frameworks. Coded in standard Javascript, HTML and SASS.',
     srcCodeLink: 'https://github.com/Nims93/Pathfinding-Visualiser',
     liveLink: 'https://nims93.github.io/Pathfinding-Visualiser/',
   },
@@ -59,6 +59,8 @@ export default function Projects() {
     </ProjectsSection>
   );
 }
+
+// const
 
 const Title = styled.h2`
   font-size: var(--section-heading-font-size-mb);
