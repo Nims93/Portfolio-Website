@@ -8,6 +8,7 @@ import WavesSection1 from './../components/WavesSection1';
 import Skills from './../components/Skills';
 import WavesSection2 from '../components/WavesSection2';
 import ContactMe from '../components/ContactMe';
+import Footer from '../components/Footer';
 
 const GlobalStyle = createGlobalStyle`
   *, :after, :before {
@@ -36,6 +37,8 @@ const GlobalStyle = createGlobalStyle`
     background-color: #202731;
     font-size: 10px;
   }
+
+
 `;
 
 const IndexPage = () => {
@@ -61,6 +64,7 @@ const IndexPage = () => {
       <Skills />
       <WavesSection2 />
       <ContactMe />
+      <Footer />
     </>
   );
 };
