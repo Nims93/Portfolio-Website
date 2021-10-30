@@ -38,7 +38,33 @@ const GlobalStyle = createGlobalStyle`
     font-size: 10px;
   }
 
+  //styling text area here because styled components and formik use the same "as" prop 
+  //causing formik to not capture textarea input
+  textarea {
+    appearance: none;
+    resize: none;
+    width: 100%;
+    height: 20em;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 400;
+    font-size: 1.7em;
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    transition: all 0.2s ease-in-out;
 
+    &:focus {
+      outline: none;
+      border-color: #3c31dd;
+      transform: scale(1.01);
+    }
+
+    @media (min-width: 767px) {
+      font-size: 2em;
+    }
+  }
 `;
 
 const IndexPage = () => {

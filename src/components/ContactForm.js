@@ -54,7 +54,7 @@ export default function ContactForm() {
 
           <InputWrapper>
             <Label htmlFor="message">Message</Label>
-            <StyledTextArea
+            <Field
               as="textarea"
               name="message"
               id="message"
