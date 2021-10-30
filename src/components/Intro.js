@@ -5,8 +5,8 @@ export default function Intro() {
   return (
     <IntroSection id="intro">
       <ContentWrapper>
-        <Heading>Hi, I'm Kieran Cyprien</Heading>
-        <Text>I'm an aspiring web developer / programmer in London</Text>
+        <Heading>I'm Kieran Cyprien</Heading>
+        <Text>An aspiring web developer / programmer in London</Text>
         <Text>
           I'm currently mostly into front end development with a strong desire
           to become as proficient and skilled a programmer as possible. I have
