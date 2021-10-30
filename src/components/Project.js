@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { FiExternalLink } from 'react-icons/fi';
+import GithubSvg from '../svgs-as-components/icons8-github.svg';
 
 export default function Project(props) {
   const { title, videoSrc, altText, desc, srcCodeLink, liveLink } = props;
@@ -26,9 +28,11 @@ export default function Project(props) {
       </Video>
       <Link left href={liveLink} target="_blank" rel="noopener noreferrer">
         Live
+        <FiExternalLink />
       </Link>
       <Link right href={srcCodeLink} target="_blank" rel="noopener noreferrer">
-        Github
+        Code
+        <GithubSvg />
       </Link>
       <Description>{desc}</Description>
     </ProjectComponent>
@@ -51,6 +55,17 @@ const Link = styled.a`
   border-radius: 3px;
   z-index: 1;
   transition: color 0.4s ease-in;
+
+  svg {
+    height: auto;
+    width: 15px;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    /* vertical-align: middle;
+    margin-left: 0.5em;
+    margin-bottom: 0.2em; */
+  }
 
   &:before {
     content: '';
