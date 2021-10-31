@@ -1,10 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 120,
+      delay: 0.4,
+      duration: 1,
+    },
+  },
+};
 
 export default function Intro() {
   return (
     <IntroSection id="intro">
-      <ContentWrapper>
+      <ContentWrapper
+        as={motion.div}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <Heading>I'm Kieran Cyprien</Heading>
         <Text>An aspiring web developer / programmer in London</Text>
         <Text>
