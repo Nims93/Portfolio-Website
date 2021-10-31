@@ -15,7 +15,7 @@ const PROJECTS_INFO = [
     title: 'Pathinding Visualiser',
     videoSrc: PathfindingVisualiserWebmDemo,
     altText: 'Pathfinding viualiser demo webm',
-    desc: 'An app that visualises pathfinding and maze generation algorithms. Create a maze of walls with mouse clicks, click draging your cursor across cells or selecting one of the maze generation algorithms. Then use a pathfinding algorithm to find a path (if one exists) from the start node to the end node. My first real project and the one that solidified my basic knowledge on data structures, thinking in terms of algorithms and basic Js knowledge before jumping into any frameworks. Coded in standard Javascript, HTML and CSS originally then ported to SASS.',
+    desc: 'An app that visualises pathfinding and maze generation algorithms. This solidified my basic knowledge on data structures, thinking in terms of algorithms and basic Js knowledge before jumping into any frameworks. Coded in standard Javascript, HTML and CSS originally then changed to SASS.',
     srcCodeLink: 'https://github.com/Nims93/Pathfinding-Visualiser',
     liveLink: 'https://nims93.github.io/Pathfinding-Visualiser/',
   },
@@ -23,7 +23,7 @@ const PROJECTS_INFO = [
     title: 'React Realtime Chat App',
     videoSrc: ReactRealtimeChatAppWebmDemo,
     altText: 'React Realtime Chat App webm',
-    desc: "A Realtime chat app made possible by Google Firebase Real-Time Database to store and read dynamically created user messages. Also features user authentication using Google's authentication API for creating secure messages. This project helped me fully grasp the concept of asyc Js for sending and fetching data accross a network and enhanced my understanding of collection based NoSQL Databases. I also dabbled in Node Js with the use of Firebase cloud functions to filter bad words from each message. Coded with React, SASS and Firebase Real-Time Database.",
+    desc: "A Realtime chat app that implements user authentication using Google's authentication API and a bad words filter server function made in Node Js. All messages you send after signing in can be deleted. This project helped me fully grasp async Js for sending and fetching data accross a network and enhanced my understanding of collection based NoSQL Databases. Coded with React, SASS and Firebase Real-Time Database.",
     srcCodeLink: 'https://github.com/Nims93/React-Realtime-Chat-App',
     liveLink: 'https://realtime-react-chat-app.firebaseapp.com/',
   },
@@ -31,7 +31,7 @@ const PROJECTS_INFO = [
     title: 'React Music Player',
     videoSrc: ReactMusicAppWebmDemo,
     altText: 'Music player app demo webm',
-    desc: 'A music player app that plays a selection of songs using the javascript Web Audio API. Features include repeat, next song, previous song, play/pause buttons and seekbar scrubbing to seek to a different part of the song. Able to handle variable playback speeds due to low download speed or use of the seekbar without the UI losing sync with the audio. Also features a nice elegant and responsive sliding UI design. Coded with React and SASS.',
+    desc: 'A music player app that plays a selection of songs using the javascript Web Audio API. Features include repeat, next song, previous song, play/pause buttons and seekbar scrubbing to seek to a different part of the song. Able to handle variable playback speeds without the apps visual display losing sync with the audio playback. Coded with React and SASS.',
     srcCodeLink: 'https://github.com/Nims93/React-Music-Player',
     liveLink: 'https://reactproj-music-player.netlify.app/',
   },
@@ -180,6 +180,7 @@ const ProjectsWrapper = styled.div`
 
 const ProjectsSection = styled.section`
   background-color: var(--projects-color);
+  background-image: linear-gradient(to bottom, #18256d, var(--projects-color));
   padding: 5em 0 2em 0;
   position: relative;
   overflow-x: hidden;
