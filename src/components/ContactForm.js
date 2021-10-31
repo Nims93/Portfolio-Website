@@ -13,6 +13,28 @@ const VALIDATIONSCHEMA = {
     .required('Enter a message'),
 };
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
+
+const onSubmit = (values, { setSubmitting, resetForm }) => {
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: encode({ 'form-name': 'contact', ...values }),
+  })
+    .then(() => {
+      alert('Success');
+      resetForm();
+    })
+    .catch(() => {
+      alert('Error');
+    })
+    .finally(() => setSubmitting(false));
+};
+
 // const onSubmit = (values, { setSubmitting }) => {
 //   setTimeout(() => {
 //     alert(JSON.stringify(values, null, 2));
@@ -25,10 +47,13 @@ export default function ContactForm() {
     <Formik
       initialValues={{ name: '', email: '', message: '' }}
       validationSchema={Yup.object(VALIDATIONSCHEMA)}
-      // onSubmit={onSubmit}
+      onSubmit={onSubmit}
     >
       {({ isSubmitting }) => (
-        <StyledForm name="contact" data-netlify="true">
+        <StyledForm name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
+          <Field type="hidden" name="form-name" />
+          <Field type="hidden" name="bot-field" />
+          
           <InputWrapper id="name-wrapper">
             <Label htmlFor="name">Name / Organisation</Label>
             <StyledField
