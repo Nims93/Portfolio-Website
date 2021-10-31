@@ -19,12 +19,14 @@ export default function Skills() {
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
-  });
+  }, []);
 
   useEffect(async () => {
+    //KUTE.js depends on window object which doesn't exist at build time. Must be imported after component is mounted
+    //destructures imported object and changes its property default to KUTE
     const { default: KUTE } = await import('kute.js');
 
-    const handleWindowResize = async () => {
+    const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
     };
     window.addEventListener('resize', handleWindowResize);
