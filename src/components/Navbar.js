@@ -35,7 +35,9 @@ export default function Navbar() {
           <ClipboardSvgWrapper>
             <ClipboardSvg />
           </ClipboardSvgWrapper>
-          {displayPopup ? <PopupMessage>Copied!</PopupMessage> : null}
+          {displayPopup ? (
+            <PopupMessage>Copied to Clipboard!</PopupMessage>
+          ) : null}
         </Email>
         <LinksContainer>
           <Link>
@@ -70,38 +72,25 @@ export default function Navbar() {
 }
 const popup = keyframes`
 from {
-    transform: scale(1);
+    transform: scale(0) translateX(-500%);
     opacity: 0;
   }
 
 
   100% {
-    transform: scale(1);
+    transform: scale(1) translateX(0);
+    opacity: 1;
   }
 `;
 
 const PopupMessage = styled.span`
   position: absolute;
-  top: 125%;
-  left: 50%;
-  /* transform: translateX(-50%); */
-  padding: 0.3em;
-  border-radius: 10px;
-  background-color: #808080;
+  top: 25%;
+  right: -80%;
+  background-color: transparent;
   cursor: initial;
-  box-shadow: 1px 1px 10px 5px #808080;
-  animation: ${popup} 0.5s linear 1;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-bottom: 10px solid #808080;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-  }
+  animation: ${popup} 0.3s linear 1;
+  z-index: -1;
 `;
 
 const ClipboardSvgWrapper = styled.span`
@@ -138,9 +127,11 @@ const Email = styled.p`
 
     &:hover {
       background-color: #545454;
+      transition: background-color 0.2s ease-in;
 
       svg {
         fill: #b5b5bf;
+        transition: fill 0.2s ease-in;
       }
     }
   }
