@@ -9,8 +9,10 @@ export default function Footer() {
     <Wrapper>
       <ContentWrapper>
         <Content>
-          Coded using <Img src={ReactIcon} alt="React"></Img>
+          Coded using React<Img src={ReactIcon} alt="React" paddingEqual></Img>
+          Gatsby
           <Img src={GatsbyIcon} alt="Gatsby" paddingEqual></Img> and
+          styled-components
           <Img src={StyledCompIcon} alt="Styled Components"></Img>
         </Content>
         <Content>Kieran Cyprien © 2021</Content>
