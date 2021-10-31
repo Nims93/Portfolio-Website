@@ -7,13 +7,12 @@ export const useIntersection = (element, rootMarin) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
+        observer.unobserve(element);
       },
       { rootMarin }
     );
 
     element && observer.observe(element);
-
-    return () => observer.unobserve(element);
   }, []);
 
   return isVisible;
