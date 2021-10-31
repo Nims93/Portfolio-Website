@@ -19,8 +19,9 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     --navbar-color: #18181b;
-    --intro-color: #dd3f31;
-    --projects-color: #6d1868;
+    --intro-color: #83a8ee;
+    --projets-color-from: #18256d;
+    --projects-color-to: #6d1868;
     --skills-color: #ff0066;
     --contact-color: #202731;
 
