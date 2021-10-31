@@ -11,7 +11,8 @@ export default function ContactMe() {
         <Title>Contact Me!</Title>
         <Text>
           If you're impressed with my work and would like to contact me, feel
-          free to fill out the form below!
+          free to fill out the form below! Form state management by Formik and
+          input validation by Yup.
         </Text>
         <ContactForm />
       </ContactWrapper>
