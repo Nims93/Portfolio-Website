@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-// import KUTE from 'kute.js';
+import { motion, useAnimation } from 'framer-motion';
+import { useIntersection } from '../hooks/useIntersection';
 import CssSVG from './../svgs-as-components/icons8-css3.svg';
 import FirebaseSVG from './../svgs-as-components/icons8-firebase.svg';
 import GitSVG from './../svgs-as-components/icons8-git.svg';
@@ -12,10 +13,57 @@ import HtmlSVG from './../svgs-as-components/svgrepo-html5.svg';
 import ReactSVG from './../svgs-as-components/svgrepo-react.svg';
 import BlobSVG from './../svgs-as-components/dual-haikei-blobs.svg';
 
+const titleVariants = {
+  init: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 120,
+      delay: 0.4,
+      duration: 0.5,
+    },
+  },
+};
+
+const skillVariants = {
+  leftInit: {
+    opacity: 0,
+    x: -50,
+  },
+  rightInit: {
+    opacity: 0,
+    x: 50,
+  },
+  topInit: {
+    opacity: 0,
+    y: -50,
+  },
+  bottomInit: {
+    opacity: 0,
+    y: 50,
+  },
+  centerInit: {
+    opacity: 0,
+    scale: 0,
+  },
+};
+
 export default function Skills() {
   const [windowWidth, setWindowWidth] = useState(null);
   const kuteRef = useRef(null);
   const isAnimationOnScreenRef = useRef(false);
+  const titleRef = useRef();
+  const skillsContainerRef = useRef();
+  const titleInViewPort = useIntersection(titleRef, '200px');
+  const skillsInViewPort = useIntersection(skillsContainerRef, '250px');
+  const animationControl = useAnimation();
+
+  titleInViewPort && animationControl.start(titleVariants.animate);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -52,51 +100,104 @@ export default function Skills() {
   return (
     <SkillsSection id="skills">
       <SectionContainer>
-        <Title>Skills</Title>
-        <SkillsContainer>
+        <Title
+          ref={titleRef}
+          as={motion.h2}
+          variants={titleVariants}
+          initial="init"
+          animate={animationControl}
+        >
+          Skills
+        </Title>
+        <SkillsContainer ref={skillsContainerRef}>
           {windowWidth >= 1050 ? <BlobSVG /> : null}
           <SkillsGroupSubContainer>
-            <Skill id="html">
+            <Skill
+              id="html"
+              as={motion.div}
+              variants={skillVariants}
+              initial="leftInit"
+            >
               <HtmlSVG />
               <p>HTML5</p>
             </Skill>
           </SkillsGroupSubContainer>
           <SkillsGroupSubContainer>
-            <Skill id="github">
+            <Skill
+              id="github"
+              as={motion.div}
+              variants={skillVariants}
+              initial="leftInit"
+            >
               <GithubSVG />
               <p>GitHub</p>
             </Skill>
-            <Skill id="git">
+            <Skill
+              id="git"
+              as={motion.div}
+              variants={skillVariants}
+              initial="leftInit"
+            >
               <GitSVG />
               <p>Git</p>
             </Skill>
           </SkillsGroupSubContainer>
           <SkillsGroupSubContainer>
-            <Skill id="javascript">
+            <Skill
+              id="javascript"
+              as={motion.div}
+              variants={skillVariants}
+              initial="topInit"
+            >
               <JsSVG />
               <p>Javascript</p>
             </Skill>
-            <Skill id="react">
+            <Skill
+              id="react"
+              as={motion.div}
+              variants={skillVariants}
+              initial="centerInit"
+            >
               <ReactSVG />
               <p>React</p>
             </Skill>
-            <Skill id="python">
+            <Skill
+              id="python"
+              as={motion.div}
+              variants={skillVariants}
+              initial="bottomInit"
+            >
               <PythonSVG />
               <p>Python</p>
             </Skill>
           </SkillsGroupSubContainer>
           <SkillsGroupSubContainer>
-            <Skill id="css">
+            <Skill
+              id="css"
+              as={motion.div}
+              variants={skillVariants}
+              initial="rightInit"
+            >
               <CssSVG />
               <p>Css</p>
             </Skill>
-            <Skill id="sass">
+            <Skill
+              id="sass"
+              as={motion.div}
+              variants={skillVariants}
+              initial="rightInit"
+            >
               <SassSVG />
               <p>Sass</p>
             </Skill>
           </SkillsGroupSubContainer>
           <SkillsGroupSubContainer>
-            <Skill id="firebase">
+            <Skill
+              id="firebase"
+              as={motion.div}
+              variants={skillVariants}
+              initial="rightInit"
+            >
               <FirebaseSVG />
               <p>Firestore RTDB</p>
             </Skill>
