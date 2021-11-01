@@ -2,17 +2,17 @@ import { useEffect, useState } from 'react';
 
 export const useIntersection = (element, rootMarin) => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
+    const callback = ([entry]) => {
+      if (entry.isIntersecting) {
         setIsVisible(entry.isIntersecting);
-        observer.unobserve(element);
-      },
-      { rootMarin }
-    );
+        observer.unobserve(element.current);
+      }
+    };
 
-    element && observer.observe(element);
+    const observer = new IntersectionObserver(callback, { rootMarin });
+
+    element && observer.observe(element.current);
   }, []);
 
   return isVisible;
