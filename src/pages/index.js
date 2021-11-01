@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import favicon from '../images/favicon.png';
 import { createGlobalStyle } from 'styled-components';
 import NavBar from './../components/Navbar';
 import Intro from './../components/Intro';
@@ -71,7 +72,8 @@ const GlobalStyle = createGlobalStyle`
 const IndexPage = () => {
   return (
     <>
-      <Helmet>
+      <Helmet title="Kieran | Portfolio">
+        <link rel="icon" type="img/png" sizes="24x24" href={favicon}></link>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link
           rel="preconnect"
