@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+import { motion, useAnimation } from 'framer-motion';
+import { useIntersection } from '../hooks/useIntersection';
 import Project from './Project';
 import WaveSvg from './../svgs-as-components/singlewave2.svg';
 import GitHubSvg from '../svgs-as-components/icons8-github.svg';
@@ -37,13 +39,44 @@ const PROJECTS_INFO = [
   },
 ];
 
+const titleVariants = {
+  init: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 120,
+      delay: 0.4,
+      duration: 0.5,
+    },
+  },
+};
+
 export default function Projects() {
+  const titleRef = useRef();
+  const inViewPort = useIntersection(titleRef, '200px');
+  const animationControl = useAnimation();
+
+  inViewPort && animationControl.start(titleVariants.animate);
+
   return (
     <ProjectsSection id="projects">
       <SVGContainer>
         <WaveSvg />
       </SVGContainer>
-      <Title>Projects</Title>
+      <Title
+        ref={titleRef}
+        as={motion.h2}
+        variants={titleVariants}
+        initial="init"
+        animate={animationControl}
+      >
+        Projects
+      </Title>
       <ProjectsWrapper>
         {PROJECTS_INFO.map((info, idx) => {
           return (
