@@ -58,7 +58,7 @@ const titleVariants = {
 
 export default function Projects() {
   const titleRef = useRef();
-  const inViewPort = useIntersection(titleRef, '200px');
+  const inViewPort = useIntersection(titleRef, 0.1);
   const animationControl = useAnimation();
 
   inViewPort && animationControl.start(titleVariants.animate);

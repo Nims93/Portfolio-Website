@@ -9,17 +9,19 @@ export default function Project(props) {
   const { title, videoSrc, altText, desc, srcCodeLink, liveLink } = props;
   const wrapperRef = useRef();
   const videoRef = useRef();
-  const inViewPort = useIntersection(wrapperRef, '300px');
+  const inViewPort = useIntersection(wrapperRef, 0);
   const animationControl = useAnimation();
 
-  inViewPort &&
-    animationControl.start({
-      scale: [0.95, 1.05, 1],
-      transition: {
-        // delay: 0.4,
-        duration: 1,
-      },
-    });
+  useEffect(() => {
+    inViewPort &&
+      animationControl.start({
+        scale: [0.95, 1.05, 1],
+        transition: {
+          // delay: 0.4,
+          duration: 1,
+        },
+      });
+  }, [inViewPort, animationControl]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
