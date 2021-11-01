@@ -1,14 +1,58 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import { motion, useAnimation } from 'framer-motion';
+import { useIntersection } from '../hooks/useIntersection';
 import ContactForm from './ContactForm';
 import BlobsSvgMb from '../images/blob-scatter-haikei-mob.svg';
 import BlobsSvg from '../images/blob-scatter-haikei.svg';
 
+const titleVariants = {
+  initial: {
+    opacity: 0,
+    y: 50,
+  },
+  animate: {
+    opacity: 1,
+    y: 1,
+    transition: {
+      when: 'beforeChildren',
+      delay: 1,
+    },
+  },
+};
+
+const wrapperVariants = {
+  initial: {
+    opacity: 0,
+    x: 50,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+  },
+};
+
 export default function ContactMe() {
+  const wrapperRef = useRef();
+  const wrapperInViewPort = useIntersection(wrapperRef, 0.2);
+  const animationControlWrapper = useAnimation();
+
+  useEffect(() => {
+    wrapperInViewPort && animationControlWrapper.start(wrapperVariants.animate);
+  }, [wrapperInViewPort, animationControlWrapper]);
+
   return (
     <ContactSection id="contact-me">
-      <ContactWrapper>
-        <Title>Contact Me!</Title>
+      <ContactWrapper
+        ref={wrapperRef}
+        as={motion.div}
+        variants={wrapperVariants}
+        initial="initial"
+        animate={animationControlWrapper}
+      >
+        <Title as={motion.h2} variants={titleVariants} animate="animate">
+          Contact Me!
+        </Title>
         <Text>
           If you're impressed with my work and would like to contact me, feel
           free to fill out the form below! Form state management by Formik and
