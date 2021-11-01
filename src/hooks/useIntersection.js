@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useIntersection = (element, rootMarin) => {
+export const useIntersection = (element, threshold) => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
     const callback = ([entry]) => {
@@ -10,7 +10,7 @@ export const useIntersection = (element, rootMarin) => {
       }
     };
 
-    const observer = new IntersectionObserver(callback, { rootMarin });
+    const observer = new IntersectionObserver(callback, { threshold });
 
     element && observer.observe(element.current);
   }, []);
