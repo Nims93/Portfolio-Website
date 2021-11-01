@@ -1,22 +1,39 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { motion, useAnimation } from 'framer-motion';
+import { useIntersection } from '../hooks/useIntersection';
 import { FiExternalLink } from 'react-icons/fi';
 import GithubSvg from '../svgs-as-components/icons8-github.svg';
 
 export default function Project(props) {
   const { title, videoSrc, altText, desc, srcCodeLink, liveLink } = props;
+  const wrapperRef = useRef();
+  const videoRef = useRef();
+  const inViewPort = useIntersection(wrapperRef, '300px');
+  const animationControl = useAnimation();
 
-  const videoRef = useRef(null);
+  inViewPort &&
+    animationControl.start({
+      scale: [0.95, 1.05, 1],
+      transition: {
+        // delay: 0.4,
+        duration: 1,
+      },
+    });
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       entry.isIntersecting && videoRef.current.play();
     });
-
     observer.observe(videoRef.current);
-  });
+  }, []);
 
   return (
-    <ProjectComponent>
+    <ProjectComponent
+      ref={wrapperRef}
+      as={motion.div}
+      animate={animationControl}
+    >
       <ProjectTitle href={liveLink} target="_blank" rel="noopener noreferrer">
         <h3>{title}</h3>
       </ProjectTitle>
