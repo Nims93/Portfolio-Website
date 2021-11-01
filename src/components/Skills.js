@@ -51,6 +51,69 @@ const skillVariants = {
     opacity: 0,
     scale: 0,
   },
+  animateHtml: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 0,
+    },
+  },
+  animateGithub: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 0.3,
+    },
+  },
+  animateGit: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 0.6,
+    },
+  },
+  animateJs: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.9,
+    },
+  },
+  animateReact: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: 1.2,
+    },
+  },
+  animatePython: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.9,
+    },
+  },
+  animateCss: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 0.6,
+    },
+  },
+  animateSass: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 0.3,
+    },
+  },
+  animateFirebase: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 0,
+    },
+  },
 };
 
 export default function Skills() {
@@ -60,10 +123,35 @@ export default function Skills() {
   const titleRef = useRef();
   const skillsContainerRef = useRef();
   const titleInViewPort = useIntersection(titleRef, '200px');
-  const skillsInViewPort = useIntersection(skillsContainerRef, '250px');
+  const skillsInViewPort = useIntersection(skillsContainerRef, '600px');
   const animationControl = useAnimation();
+  const animationControlHtml = useAnimation();
+  const animationControlGithub = useAnimation();
+  const animationControlGit = useAnimation();
+  const animationControlJs = useAnimation();
+  const animationControlReact = useAnimation();
+  const animationControlPython = useAnimation();
+  const animationControlCss = useAnimation();
+  const animationControlSass = useAnimation();
+  const animationControlFirebase = useAnimation();
 
-  titleInViewPort && animationControl.start(titleVariants.animate);
+  useEffect(() => {
+    titleInViewPort && animationControl.start(titleVariants.animate);
+  }, [titleInViewPort]);
+
+  useEffect(() => {
+    if (skillsInViewPort) {
+      animationControlHtml.start(skillVariants.animateHtml);
+      animationControlGithub.start(skillVariants.animateGithub);
+      animationControlGit.start(skillVariants.animateGit);
+      animationControlJs.start(skillVariants.animateJs);
+      animationControlReact.start(skillVariants.animateReact);
+      animationControlPython.start(skillVariants.animatePython);
+      animationControlCss.start(skillVariants.animateCss);
+      animationControlSass.start(skillVariants.animateSass);
+      animationControlFirebase.start(skillVariants.animateFirebase);
+    }
+  }, [skillsInViewPort]);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -117,6 +205,7 @@ export default function Skills() {
               as={motion.div}
               variants={skillVariants}
               initial="leftInit"
+              animate={animationControlHtml}
             >
               <HtmlSVG />
               <p>HTML5</p>
@@ -128,6 +217,7 @@ export default function Skills() {
               as={motion.div}
               variants={skillVariants}
               initial="leftInit"
+              animate={animationControlGithub}
             >
               <GithubSVG />
               <p>GitHub</p>
@@ -137,6 +227,7 @@ export default function Skills() {
               as={motion.div}
               variants={skillVariants}
               initial="leftInit"
+              animate={animationControlGit}
             >
               <GitSVG />
               <p>Git</p>
@@ -148,6 +239,7 @@ export default function Skills() {
               as={motion.div}
               variants={skillVariants}
               initial="topInit"
+              animate={animationControlJs}
             >
               <JsSVG />
               <p>Javascript</p>
@@ -157,6 +249,7 @@ export default function Skills() {
               as={motion.div}
               variants={skillVariants}
               initial="centerInit"
+              animate={animationControlReact}
             >
               <ReactSVG />
               <p>React</p>
@@ -166,6 +259,7 @@ export default function Skills() {
               as={motion.div}
               variants={skillVariants}
               initial="bottomInit"
+              animate={animationControlPython}
             >
               <PythonSVG />
               <p>Python</p>
@@ -177,6 +271,7 @@ export default function Skills() {
               as={motion.div}
               variants={skillVariants}
               initial="rightInit"
+              animate={animationControlCss}
             >
               <CssSVG />
               <p>Css</p>
@@ -186,6 +281,7 @@ export default function Skills() {
               as={motion.div}
               variants={skillVariants}
               initial="rightInit"
+              animate={animationControlSass}
             >
               <SassSVG />
               <p>Sass</p>
@@ -197,6 +293,7 @@ export default function Skills() {
               as={motion.div}
               variants={skillVariants}
               initial="rightInit"
+              animate={animationControlFirebase}
             >
               <FirebaseSVG />
               <p>Firestore RTDB</p>
