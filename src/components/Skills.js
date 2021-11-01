@@ -55,63 +55,63 @@ const skillVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 0,
+      delay: 0.4,
     },
   },
   animateGithub: {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 0.3,
+      delay: 0.55,
     },
   },
   animateGit: {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 0.6,
+      delay: 0.7,
     },
   },
   animateJs: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.9,
+      delay: 0.85,
     },
   },
   animateReact: {
     opacity: 1,
     scale: 1,
     transition: {
-      delay: 1.2,
+      delay: 1,
     },
   },
   animatePython: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.9,
+      delay: 0.85,
     },
   },
   animateCss: {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 0.6,
+      delay: 0.7,
     },
   },
   animateSass: {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 0.3,
+      delay: 0.55,
     },
   },
   animateFirebase: {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 0,
+      delay: 0.4,
     },
   },
 };
@@ -122,8 +122,8 @@ export default function Skills() {
   const isAnimationOnScreenRef = useRef(false);
   const titleRef = useRef();
   const skillsContainerRef = useRef();
-  const titleInViewPort = useIntersection(titleRef, '200px');
-  const skillsInViewPort = useIntersection(skillsContainerRef, '600px');
+  const titleInViewPort = useIntersection(titleRef, 0.2);
+  const skillsInViewPort = useIntersection(skillsContainerRef, 0.3);
   const animationControl = useAnimation();
   const animationControlHtml = useAnimation();
   const animationControlGithub = useAnimation();
