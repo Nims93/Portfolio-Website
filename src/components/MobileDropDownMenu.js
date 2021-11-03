@@ -11,10 +11,9 @@ export default function MobileDropDownMenu({
     <MobileMenuBtn
       aria-label="Options"
       role="menu"
-      aria-expanded={open ? true : false}
       tabIndex="0"
       onClick={() => setOpen((o) => !o)}
-      onKeyPress={(e) => e.key === 'Enter' && setOpen(!open)}
+      onKeyPress={(e) => e.key === 'Enter' && setOpen((o) => !o)}
     >
       <MenuBtnIcon />
       <MobileListContainer open={open}>
