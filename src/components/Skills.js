@@ -555,13 +555,12 @@ const SkillsContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  position: relative;
   font-size: var(--section-heading-font-size-mb);
-  margin: 0;
+  margin-top: 1em;
 
   @media (min-width: 767px) {
     font-size: var(--section-heading-font-size-md);
-    top: -0.5em;
+    margin-top: 0.2em;
   }
 `;
 

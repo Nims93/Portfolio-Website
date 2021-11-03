@@ -74,9 +74,11 @@ const Text = styled.p`
 
 const Title = styled.h2`
   font-size: var(--section-heading-font-size-mb);
+  margin-top: 1em;
 
   @media (min-width: 767px) {
     font-size: var(--section-heading-font-size-md);
+    margin-top: 0.3em;
   }
 `;
 
