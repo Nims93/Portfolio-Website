@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   :root {
+    scroll-behavior: smooth;
     --navbar-color: #18181b;
     --intro-color: #83a8ee;
     --projets-color-from: #18256d;
