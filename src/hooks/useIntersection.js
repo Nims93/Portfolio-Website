@@ -13,7 +13,7 @@ export const useIntersection = (element, threshold) => {
     const observer = new IntersectionObserver(callback, { threshold });
 
     element && observer.observe(element.current);
-  }, []);
+  }, [element, threshold]);
 
   return isVisible;
 };
