@@ -31,16 +31,17 @@ export default function Intro() {
         <Heading>I'm Kieran Cyprien</Heading>
         <Text>An aspiring web developer / programmer in London</Text>
         <Text>
-          I'm currently mostly into front end development with a strong desire
-          to become as proficient and skilled a programmer as possible. I have
-          aspirations to learn more languages and frameworks / libraries with
-          the ultimate goal to become a full stack developer and mobile dev. I'm
-          currently working and skilled with React, Js and SASS.
+          I'm currently into front end development with a strong desire to
+          become as proficient and skilled a programmer as possible. I have
+          aspirations to learn more languages, frameworks and libraries with the
+          ultimate goal of becoming a full stack developer and mobile dev. I'm
+          currently USING and skilled with React, Js and SASS. I'm a quick and
+          eager learner, willing and able to adapt to any challenge put in front
+          of me.
         </Text>
         <Text>
-          With my current skillset I would like to take my skillset to a
-          professional setting with your company, with which I beleive I would
-          be an exccellent candidate.
+          I am ready and willing to take my skillset to a professional setting
+          with your company. Look below to view my projects.
         </Text>
       </ContentWrapper>
     </IntroSection>
