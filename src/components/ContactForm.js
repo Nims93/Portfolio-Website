@@ -13,25 +13,21 @@ const VALIDATIONSCHEMA = {
     .required('Enter a message'),
 };
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-};
-
 const onSubmit = (values, { setSubmitting, resetForm }) => {
-  fetch('/', {
+  fetch('https://formsubmit.co/ajax/your@email.com', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: encode({ 'form-name': 'contact', ...values }),
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify(values),
   })
-    .then(() => {
-      alert('Success');
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
       resetForm();
     })
-    .catch(() => {
-      alert('Error');
-    })
+    .catch((error) => console.log(error))
     .finally(() => setSubmitting(false));
 };
 
@@ -50,10 +46,7 @@ export default function ContactForm() {
       onSubmit={onSubmit}
     >
       {({ isSubmitting }) => (
-        <StyledForm name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
-          <Field type="hidden" name="form-name" />
-          <Field type="hidden" name="bot-field" />
-          
+        <StyledForm>
           <InputWrapper id="name-wrapper">
             <Label htmlFor="name">Name / Organisation</Label>
             <StyledField
