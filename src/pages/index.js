@@ -2,6 +2,9 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import favicon from '../images/favicon.png';
 import { createGlobalStyle } from 'styled-components';
+import '@fontsource/prompt/100.css';
+import '@fontsource/prompt/400.css';
+import '@fontsource/prompt/900.css';
 import NavBar from './../components/Navbar';
 import Intro from './../components/Intro';
 import Projects from './../components/Projects';
@@ -75,16 +78,6 @@ const IndexPage = () => {
     <>
       <Helmet title="Kieran | Portfolio">
         <link rel="icon" type="img/png" sizes="24x24" href={favicon}></link>
-        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin
-        ></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;400;900&display=swap"
-          rel="stylesheet"
-        ></link>
       </Helmet>
       <GlobalStyle />
       <NavBar />
