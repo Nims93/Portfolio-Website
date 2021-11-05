@@ -13,22 +13,25 @@ const VALIDATIONSCHEMA = {
     .required('Enter a message'),
 };
 
-const onSubmit = (values, { setSubmitting, resetForm }) => {
-  fetch('https://formsubmit.co/ajax/your@email.com', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify(values),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      resetForm();
-    })
-    .catch((error) => console.log(error))
-    .finally(() => setSubmitting(false));
+const onSubmit = async (values, { setSubmitting, resetForm }) => {
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/your@email.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(values),
+    });
+
+    const data = await response.json();
+    console.log(data);
+    resetForm();
+  } catch (err) {
+    console.log(err);
+  } finally {
+    setSubmitting(false);
+  }
 };
 
 // const onSubmit = (values, { setSubmitting }) => {
