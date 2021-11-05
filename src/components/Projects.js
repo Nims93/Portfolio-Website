@@ -14,7 +14,7 @@ import PathfindingVisualiserWebmDemo from './../videos/Pathfinding-Visualiser-De
 
 const PROJECTS_INFO = [
   {
-    title: 'Pathinding Visualiser',
+    title: 'Pathfinding Visualiser',
     videoSrc: PathfindingVisualiserWebmDemo,
     altText: 'Pathfinding viualiser demo webm',
     desc: 'An app that visualises pathfinding and maze generation algorithms. This solidified my basic knowledge on data structures, thinking in terms of algorithms and basic Js knowledge before jumping into any frameworks. Coded in standard Javascript, HTML and CSS originally then changed to SASS.',
@@ -25,7 +25,7 @@ const PROJECTS_INFO = [
     title: 'React Realtime Chat App',
     videoSrc: ReactRealtimeChatAppWebmDemo,
     altText: 'React Realtime Chat App webm',
-    desc: "A Realtime chat app that implements user authentication using Google's authentication API and a bad words filter server function made in Node Js. All messages you send after signing in can be deleted. This project helped me fully grasp async Js for sending and fetching data accross a network and enhanced my understanding of collection based NoSQL Databases. Coded with React, SASS and Firebase Real-Time Database.",
+    desc: "A Realtime chat app that implements user authentication using Google's authentication API and a bad words filter cloud function made in Node Js. All messages you send after signing in can be deleted. This project helped me fully grasp async Js for sending and fetching data accross a network and enhanced my understanding of collection based NoSQL Databases. Coded with React, SASS and Firebase Real-Time Database.",
     srcCodeLink: 'https://github.com/Nims93/React-Realtime-Chat-App',
     liveLink: 'https://realtime-react-chat-app.firebaseapp.com/',
   },
@@ -33,7 +33,7 @@ const PROJECTS_INFO = [
     title: 'React Music Player',
     videoSrc: ReactMusicAppWebmDemo,
     altText: 'Music player app demo webm',
-    desc: 'A music player app that plays a selection of songs using the javascript Web Audio API. Features include repeat, next song, previous song, play/pause buttons and seekbar scrubbing to seek to a different part of the song. Able to handle variable playback speeds without the apps visual display losing sync with the audio playback. Coded with React and SASS.',
+    desc: 'A music player app that plays a selection of songs using the javascript Web Audio API. Features include repeat, next song, previous song, play/pause buttons and seekbar scrubbing . Able to handle variable playback speeds without the apps visual display losing sync with the audio playback. Coded with React and SASS.',
     srcCodeLink: 'https://github.com/Nims93/React-Music-Player',
     liveLink: 'https://reactproj-music-player.netlify.app/',
   },

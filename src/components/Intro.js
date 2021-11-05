@@ -31,13 +31,13 @@ export default function Intro() {
         <Heading>I'm Kieran Cyprien</Heading>
         <Text>An aspiring web developer / programmer in London</Text>
         <Text>
-          I'm currently into front end development with a strong desire to
-          become as proficient and skilled a programmer as possible. I have
-          aspirations to learn more languages, frameworks and libraries with the
-          ultimate goal of becoming a full stack developer and mobile dev. I'm
-          currently USING and skilled with React, Js and SASS. I'm a quick and
-          eager learner, willing and able to adapt to any challenge put in front
-          of me.
+          A self taught front end developer with a strong desire to become as
+          proficient and skilled a programmer as possible. I have aspirations to
+          learn more languages, frameworks and libraries with the ultimate goal
+          of becoming a full stack developer and mobile dev. I'm currently
+          skilled with React, Javascript, SASS and Styled Components. I'm a
+          quick and eager learner, able to adapt to the challenges of software
+          development.
         </Text>
         <Text>
           I am ready and willing to take my skillset to a professional setting
