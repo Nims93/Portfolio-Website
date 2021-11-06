@@ -15,17 +15,15 @@ const VALIDATIONSCHEMA = {
 
 const onSubmit = async (values, { setSubmitting, resetForm }) => {
   try {
-    const response = await fetch(
-      'https://formsubmit.co/ajax/kieranakc2@gmail.com',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(values),
-      }
-    );
+    const response = await fetch('https://formcarry.com/s/RmnhqXaAhFt', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // prettier-ignore
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(values),
+    });
 
     if (!response.ok) throw new Error('Could not send message');
 
