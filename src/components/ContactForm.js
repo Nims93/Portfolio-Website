@@ -15,17 +15,23 @@ const VALIDATIONSCHEMA = {
 
 const onSubmit = async (values, { setSubmitting, resetForm }) => {
   try {
-    const response = await fetch('https://formsubmit.co/ajax/your@email.com', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify(values),
-    });
+    const response = await fetch(
+      'https://formsubmit.co/ajax/kieranakc2@gmail.com',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(values),
+      }
+    );
+
+    if (!response.ok) throw new Error('Could not send message');
 
     const data = await response.json();
     console.log(data);
+    alert(`Success! Thanks ${values.name} for contacting me!`);
     resetForm();
   } catch (err) {
     console.log(err);
